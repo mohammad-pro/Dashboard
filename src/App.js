@@ -1,15 +1,27 @@
-import Header from "./Components/Header";
-import Navbar from "./Components/Navbar";
+import { Route, Routes, useRoutes } from "react-router-dom";
+import routes from "./routes";
+import TopBar from "./Components/TopBar";
+import Sidebar from "./Components/Sidebar";
+
 
 
 
 
 
 function App() {
-  return (
-    <div className="App">
-      <Header/>
-      <Navbar/>
+
+  let router = useRoutes(routes)
+
+
+  return ( 
+    <div className='container mx-auto '>
+      <TopBar/>
+      <div className="flex mt-3 ">
+        <Sidebar/>
+        {router}
+      </div>
+
+
     </div>
   );
 }
