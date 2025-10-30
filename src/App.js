@@ -2,6 +2,7 @@ import { Route, Routes, useRoutes } from "react-router-dom";
 import routes from "./routes";
 import TopBar from "./Components/TopBar";
 import Sidebar from "./Components/Sidebar";
+import WidgetSmLeft from "./Components/WidgetSmLeft";
 
 
 
@@ -20,7 +21,6 @@ function App() {
         <Sidebar/>
         {router}
       </div>
-
 
     </div>
   );
