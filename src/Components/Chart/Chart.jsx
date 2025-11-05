@@ -3,7 +3,7 @@ import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis } f
 
 export default function Chart({title,data,datakey,grid}) {
   return (
-    <div className='mt-5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] p-6'>
+    <div className=' shadow-[0_4px_15px_rgba(0,0,0,0.1)] p-6'>
         <h3 className='font-bold text-xl mb-3'>{title}</h3>  
         <ResponsiveContainer width="100%" aspect={4}>
           <LineChart data={data}>

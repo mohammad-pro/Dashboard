@@ -1,32 +1,37 @@
 import React, { useState } from 'react';
-
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 14 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 31 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 31 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 11 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+import { userData } from '../Components/Chart/chartData';
+import { RiDeleteBin2Line } from "react-icons/ri";
+import { FiEdit } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 export default function Users() {
   const [page, setPage] = useState(1);
+  const [userInformation, setUserInformation] = useState([...userData]);
   const pageSize = 5;
-  const totalPages = Math.ceil(rows.length / pageSize);
-  const currentRows = rows.slice((page - 1) * pageSize, page * pageSize);
+  const totalPages = Math.ceil(userInformation.length / pageSize);
+  const currentRows = userInformation.slice((page - 1) * pageSize, page * pageSize);
   const [selectedRows, setSelectedRows] = useState([]);
 
+  // Function to toggle the selection of a row
   const toggleSelect = (id) => {
     setSelectedRows((prev) =>
       prev.includes(id) ? prev.filter((r) => r !== id) : [...prev, id]
     );
   };
 
+  // Function to handle row deletion
+  const handleDelete = (id) => {
+    // Filter out the user with the given id from userInformation
+    const updatedUserData = userInformation.filter((user) => user.id !== id);
+
+    // Update the state with the new user data
+    setUserInformation(updatedUserData);  // This updates the displayed user data after deletion
+  };
+
   return (
+    
     <div className="w-full max-w-6xl mx-auto p-4">
+      {console.log(userInformation)}
       <div className="overflow-x-auto shadow-md rounded-lg">
         <table className="min-w-full border border-gray-200 text-sm text-left text-gray-700">
           <thead className="bg-gray-100 text-gray-900 uppercase text-xs font-semibold">
@@ -45,21 +50,18 @@ export default function Users() {
                 />
               </th>
               <th className="p-3">ID</th>
-              <th className="p-3">First Name</th>
-              <th className="p-3">Last Name</th>
-              <th className="p-3">Age</th>
-              <th className="p-3">Full Name</th>
+              <th className="p-3">User</th>
+              <th className="p-3">Email</th>
+              <th className="p-3">Status</th>
+              <th className="p-3">Transaction</th>
+              <th className="p-3">Action</th>
             </tr>
           </thead>
           <tbody>
             {currentRows.map((row) => (
               <tr
                 key={row.id}
-                className={`border-t ${
-                  selectedRows.includes(row.id)
-                    ? 'bg-blue-50'
-                    : 'hover:bg-gray-50'
-                }`} 
+                className={`border-t ${selectedRows.includes(row.id) ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
               >
                 <td className="p-3 text-center">
                   <input
@@ -69,12 +71,21 @@ export default function Users() {
                   />
                 </td>
                 <td className="p-3">{row.id}</td>
-                <td className="p-3">{row.firstName || '-'}</td>
-                <td className="p-3">{row.lastName || '-'}</td>
-                <td className="p-3">{row.age ?? '-'}</td>
-                <td className="p-3">{`${row.firstName || ''} ${
-                  row.lastName || ''
-                }`}</td>
+                <td className="p-3">{row.user || '-'}</td>
+                <td className="p-3">{row.email || '-'}</td>
+                <td className="p-3">{row.status ?? '-'}</td>
+                <td className="p-3">{row.transaction ?? '-'}</td>
+                <td className="p-3 flex gap-x-3">
+                  <RiDeleteBin2Line 
+                    className="cursor-pointer text-base" 
+                    onClick={() => handleDelete(row.id)} 
+                  />
+
+                  <Link to={`/users/${row.id}`} >
+                    <FiEdit className="cursor-pointer text-base" />
+                  </Link>
+                  
+                </td>
               </tr>
             ))}
           </tbody>

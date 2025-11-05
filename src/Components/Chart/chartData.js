@@ -82,9 +82,47 @@ const dataTransactions = [
         img : '/images/profile3.jpg'
     }
     
-
 ]
 
+    const userData = [
+    { id: 1, user: 'Snow', email: 'Jon@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 2, user: 'Lannister', email: 'Cersei@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 3, user: 'Lannister', email: 'Jaime@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 4, user: 'Stark', email: 'Arya@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 5, user: 'Targaryen', email: 'Daenerys@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 6, user: 'Melisandre', email: null, status: 'active',transaction : '$120.00' },
+    { id: 7, user: 'Clifford', email: 'Ferrara@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 8, user: 'Frances', email: 'Rossini@gmail.com', status: 'active',transaction : '$120.00' },
+    { id: 9, user: 'Roxie', email: 'Harvey@gmail.com', status: 'active',transaction : '$120.00' },
+    ];
 
 
-export  { XAxisData, dataMember, dataTransactions };
+    const productData = [
+    { id: 1, product: 'Iphone 13', stock: '1500', status: 'active',price : '$150.00', img : '/images/product1.jpg' },
+    { id: 2, product: 'Iphone 12', stock: '1200', status: 'active',price : '$110.00', img : '/images/product2.jpg' },
+    { id: 3, product: 'Iphone 17', stock: '1400', status: 'active',price : '$120.00', img : '/images/product3.jpg' },
+    { id: 4, product: 'Iphone 11', stock: '1600', status: 'active',price : '$140.00', img : '/images/product4.jpg' },
+    { id: 5, product: 'Iphone 10', stock: '1100', status: 'active',price : '$110.00', img : '/images/product5.jpg' },
+    { id: 6, product: 'Iphone 18', stock: '1200', status: 'active',price : '$190.00', img : '/images/product6.jpg' },
+
+    ];
+
+
+    const productData2 = [
+        {
+            name : 'Jan',
+            sales : 1000,
+        },
+                {
+            name : 'Feb',
+            sales : 3000,
+        },
+                {
+            name : 'mar',
+            sales : 2000,
+        },
+    ]
+
+
+
+export  { XAxisData, dataMember, dataTransactions, userData, productData, productData2};

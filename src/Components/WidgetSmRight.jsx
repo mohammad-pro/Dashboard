@@ -24,7 +24,7 @@ export default function WidgetSmRight() {
                                 {item.customer}</td>
                             <td className='font-light'>{item.date} </td>
                             <td className='font-light'>{item.amount}</td>
-                            <td className=''><button className={`p-2 text-white w-20 text-sm   ${item.status == 'Approved' ? 'bg-green-50 rounded-full text-green-600' : item.status == 'Declined' ? 'bg-red-50 text-red-600 rounded-full' : 'text-blue-600 bg-blue-50 rounded-full'}`}>{item.status}</button> </td></tr>))}
+                            <td className=''><button className={`p-2  w-20 text-sm   ${item.status == 'Approved' ? 'bg-green-50 rounded-full text-green-600' : item.status == 'Declined' ? 'bg-red-50 text-red-600 rounded-full' : 'text-blue-600 bg-blue-50 rounded-full'}`}>{item.status}</button> </td></tr>))}
 
 
 
