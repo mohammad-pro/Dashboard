@@ -4,7 +4,7 @@ import Chart from './Chart/Chart'
 import { productData2 } from './Chart/chartData'
 
 export default function Product() {
-let params = useParams()
+
   
   return (
     <div className='w-full px-8'>
@@ -51,6 +51,47 @@ let params = useParams()
         </div>
       </div>
       
+      <div className='shadow-[0_4px_15px_rgba(0,0,0,0.1)] w-full mt-8'>
+        <div className='flex justify-between'>
+
+          <div className='flex flex-col gap-y-6 p-7'>
+
+            <div className='flex flex-col'>
+              <label htmlFor='product' className='text-gray-600'>Product Name</label>
+              <input type="text" name='product' className='border-b border-black' />
+            </div>
+
+            <div className='flex flex-col'>
+              <label htmlFor='stock' className='text-gray-600'>In Stock</label>
+              <select name="stock" id="">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+
+            <div className='flex flex-col'>
+              <label htmlFor='isActive' className='text-gray-600'>Active</label>
+              <select name="isActive" id="">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+          
+          <div className='flex flex-col'></div>
+
+        </div>
+
+      </div>
+
     </div>
 
   )
